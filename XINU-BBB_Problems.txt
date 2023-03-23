@@ -1,0 +1,28 @@
+Problem1
+When do:
+armmake am335x_evm_config
+Print:
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/kconfig/conf.o
+  YACC    scripts/kconfig/zconf.tab.c
+/bin/sh: 1: bison: not found
+make[1]: *** [scripts/Makefile.lib:222: scripts/kconfig/zconf.tab.c] Error 127
+make[1]: *** Waiting for unfinished jobs....
+  LEX     scripts/kconfig/zconf.lex.c
+/bin/sh: 1: flex: not found
+make[1]: *** [scripts/Makefile.lib:214: scripts/kconfig/zconf.lex.c] Error 127
+make: *** [Makefile:575: am335x_evm_config] Error 2
+Solution:
+sudo apt-get install bison
+sudo apt-get install flex
+
+Problem2
+When do:
+armmake
+Print:
+In file included from tools/imagetool.h:24,
+                 from tools/aisimage.c:7:
+include/image.h:1394:12: fatal error: openssl/evp.h: No such file or directory
+ 1394 | #  include <openssl/evp.h>
+Solution:
+sudo apt-get install libssl-dev
